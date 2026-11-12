@@ -120,7 +120,7 @@ jobs:
 
       - name: Cache native lib
         if: steps.napi_restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             apps/api/native/*.node
@@ -160,7 +160,7 @@ jobs:
 
       - name: Cache Go lib
         if: steps.golib_restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: apps/api/sharedLibs/go-html-to-md/libhtml-to-markdown.so
           key: ${{ steps.golib_restore.outputs.cache-primary-key }}
@@ -197,7 +197,7 @@ jobs:
 
       - name: Cache Playwright
         if: matrix.engine == 'playwright' && steps.pw_cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/ms-playwright
           key: ${{ steps.pw_cache.outputs.cache-primary-key }}
